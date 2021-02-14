@@ -9,6 +9,12 @@ The NYC Taxi and Limousine Commission [(TLC)](http://www.nyc.gov/html/tlc/html/a
 * estimate the value of the NYC market for Uber, and its revenue growth
 * other insights about the usage of the service
 
+## **Uber Fare Prediction**
+
+**This project aims to:** Design an algorithm which will tell the fare to be charged for a passenger. 
+
+A fare calculator helps a customer in identifying the fare valid for the trip. They are often used by passengers who are new to a city or tourists to get an estimate of travel costs.
+
 
 ## **Required Packages**
 
