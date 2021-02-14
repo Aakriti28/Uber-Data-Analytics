@@ -135,9 +135,6 @@ drop it for further operations. Industry standards ask to follow following stand
 2. Missing value percentage > 30 % : Drop the variable
 
 
-```
-Graph 2.1 : Missing Values
-```
 It is found from the above graph plot that the there is no variable exceeding the 30% range so we not
 need to exclude any of our variable.
 
@@ -207,10 +204,6 @@ pickup_latitude - 74.00689 401.
 dropoff_longitude - 74.22705 40.
 dropoff_latitude - 74.00638 41.
 ```
-```
-Table 2.8: Range of Variables
-```
-
 
 All this outliers mentioned above happened because of manual error, or interchange of data, or may be
 correct data but exceptional. But all these outliers can hamper our data model. So there is a requirement
@@ -266,10 +259,7 @@ correlation strength between independent variables and the ‘fare_amount’ var
 
 **Correlation Plot:**
 
-```
-Graph 2.2 : Correlation Plot
-```
-From the above plot it is found that most of the variables are highly correlated with each other, like fare
+From the plot it is found that most of the variables are highly correlated with each other, like fare
 amount is highly correlated with distance variable. All the dark blue charts represents that variables are
 highly correlated. And as there is no dark red charts, which represents negative correlation, it can be
 summarized that our dataset has strong or highly positive correlation between the variables.
