@@ -1,0 +1,14 @@
+## Uber Fare Prediction
+
+We have a dataset with features like fare amount, pickup and drop location, passenger count, and so on.
+
+**The following were the objectives of this notebook:**
+ * Understand the type of data.
+ * Identify the output variable.
+ * Identify the factors which affect the output variable.
+ * Check if there are any biases in your dataset.
+ * Count the null values existing in columns.
+ * Remove the null value rows in the target variable.
+ * Perform train test split.
+ * Predict the accuracy using regression models.
+ * Check and compare the accuracy of the different models.
