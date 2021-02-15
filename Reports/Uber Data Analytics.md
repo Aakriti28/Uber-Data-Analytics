@@ -75,7 +75,7 @@ The histograms below illustrate the distribution of the distance and duration of
 
 The relation between a trip's duration and distance is not entirely linear. Rather, it approximates to a power function because shorter trips, occurring mostly within busy areas of traffic, tend to result in lower average trip speed.
 
-![fig14b](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig14b_DistanceDurationPlotwithFit.png)
+![fig14b](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig14b_DistanceDurationPlotwithFit.png)
 
 
 In fact, the median of the trip speed aggregated by day of the week, and by the time of the day as shown in the following two charts, are good illustrations for **levels of traffic congestion**. 
