@@ -1,6 +1,6 @@
 ## **A Comprehensive Analysis of a Very Large Uber Dataset.**
 
-### ***Part 1: Insights from Data Exploration and Visualization.***
+### **Insights from Data Exploration and Visualization.**
 
 Early in 2017, the NYC Taxi and Limousine Commission [(TLC)](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) released a dataset about Uber's ridership between September 2014 and August 2015. This dataset contains features such as destination, trip distance, and duration that were not available in other sets released before and thoroughly analyzed by [others](https://www.kaggle.com/fivethirtyeight/uber-pickups-in-new-york-city).
 
@@ -8,7 +8,7 @@ The combination of trip distance and duration allows for **estimating Uber's rev
 
 Before diving into the data, let me clarify what the term *"very large"* in the title means. The data comprises **one complete year of trips**, with a total of about 31 million entries. The uncompressed file itself is 1.4 GB, which is still fine to work on a laptop with 16 GB of RAM. However, some objects will be large enough to require better reasoning about how to **efficiently apply transformations** to them, from date-time parsing to arithmetic functions.
 
-In the **Jupyter [notebook](https://github.com/geoninja/Uber-Data-Analysis/blob/master/NYC_Uber_Rides.ipynb)** associated with this work, I kept some code commented out in the cells as a note of much less efficient ways to achieve the same output.
+In the **Jupyter [notebook](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Uber%20Rides%20-%20EDA.ipynb)** associated with this work, I kept some code commented out in the cells as a note of much less efficient ways to achieve the same output.
 
 
 #### **Data Quality and Consistency.**
@@ -32,7 +32,7 @@ Uber [launched](https://newsroom.uber.com/uber-nyc-launches-service/) in NYC in 
 
 The number of Uber trips per day in NYC is still growing significantly. In 2017 so far, this number has often [surpassed](http://toddwschneider.com/posts/taxi-uber-lyft-usage-new-york-city/) 200,000, but the plot below shows that by mid-2015 it was hovering around 120,000.
 
-![fig1](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig1_numberOfTrips.png)
+![fig1](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig1_numberOfTrips.png)
 
 
 Another interesting insight from the plot above is the **effect of major events on the number of trips**. For the period of time analyzed, negative impacts are related to Thanksgiving, Christmas, Memorial Day, and Independence Day. A lingering (two consecutive days) drop in activity is seen for all these holidays but Memorial Day. It turns out that the July 4th holiday was observed on Friday in 2015. 
@@ -46,19 +46,19 @@ In the other hand, the plot also highlights which events have positively impacte
 
 The data also allows us to visualize other interesting trends over time. In the bar charts below, we can see that the **demand for Uber is higher from 4 PM until around midnight**. Saturday has the highest demand. Interestingly, **Sunday shows a level of demand similar to Wednesday**, which is higher than Monday or Tuesday. When looking at the total demand per month along the period of time analyzed, **seasonal effects are masked by the consistent month-to-month growth**.
 
-![fig2](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig2_number%20OfTripsOverTime.png)
+![fig2](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig2_number%20OfTripsOverTime.png)
 
 
 It's well-known that **Manhattan dominates the demand for taxis and rideshare services**. The TLC [states](http://www.nyc.gov/html/tlc/downloads/pdf/2016_tlc_factbook.pdf) that 92% of all trips by yellow cabs start there, whereas this number is about 70% for all FHV app-based companies. 
 
 In the dataset, the locations have been anonymized, but it's reasonable to assume that the top origin codes are probably based in Manhattan. In this case, the top destination codes are also based in Manhattan, because they overlap, as can be seen in the plot below.
 
-![fig9](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig9_numberOfTripsPerOriginDestination.png)
+![fig9](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig9_numberOfTripsPerOriginDestination.png)
 
 
 The most popular pickup and drop-off locations are 2A. In fact, 29% of all Uber trips during the analyzed period have either started or ended in this zone. The charts below show the mean distance and time to destination for a trip originating at 2A. 
 
-![fig11](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig11_meanDistanceTimeToFrom2A.png)
+![fig11](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig11_meanDistanceTimeToFrom2A.png)
 
 
 The data has 28 unique origin codes and 29 unique destination codes. Assuming that code 18, the extra destination code, represents the Newark Airport (EWR), a relevant destination outside of New York City, then we can infer that 2A is in Midtown, based on the mean time and distance to arrive at location 18. 
@@ -70,7 +70,7 @@ Given the concentrated demand within Manhattan, **about 68% of all Uber trips ha
 
 The histograms below illustrate the distribution of the distance and duration of Uber trips.
 
-![fig18](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig18_histTripDistDur.png)
+![fig18](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig18_histTripDistDur.png)
 
 
 The relation between a trip's duration and distance is not entirely linear. Rather, it approximates to a power function because shorter trips, occurring mostly within busy areas of traffic, tend to result in lower average trip speed.
@@ -82,22 +82,22 @@ In fact, the median of the trip speed aggregated by day of the week, and by the 
 
 Interestingly, **Monday seems to have slightly better flow than the other weekdays, and particularly better than Saturday**. As expected, Sunday has the lightest traffic.
 
-![fig6](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig6_medianSpeedByWeekday.png)
+![fig6](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig6_medianSpeedByWeekday.png)
 
 
 The **traffic congestion is almost constant throughout the day from 8 AM**, and it only starts to improve after 8 PM.
 
-![fig16](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig16_averageSpeedByHour.png)
+![fig16](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig16_averageSpeedByHour.png)
 
 
 In terms of the median distance traveled for each hour of the day, this metric shows an **intriguing spike around 5 AM**. Why is the traveled distance longer at that time of the day? This fact is observed on weekdays and weekends, as shown in the figure below. Is Uber serving more people living outside of Manhattan?
 
-![fig7](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig7_medianDistanceOverHour.png)
+![fig7](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig7_medianDistanceOverHour.png)
 
 
 In order to answer this question, we look at the total number of long and short (less than 5 miles) trips categorized by weekday versus weekend, as shown in the charts below. The **red circles** highlight the focus areas where the number of long trips is greater than the number of short trips, and this occurs both on weekdays and weekends, although at slightly different times: the **demand is higher for longer trips from about 5 to 7 AM on weekdays, and from 6 to 8 AM on weekends**.
  
-![fig8](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig8_numberOfTripsShortLong.png)
+![fig8](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig8_numberOfTripsShortLong.png)
 
 
 A possible explanation for this observed behavior is that even though the NYC subway system operates 24x7, the service is more limited and sparse, and buses are not available around the clock. Therefore, Uber seems to be serving residents from outside of the Manhattan core during the public transportation gap in the early hours of the day.
@@ -115,14 +115,14 @@ Indeed, the mean revenue per trip between September 2014 and August 2015, calcul
 
 The chart below show the estimated base revenue growth for each month:
 
-![fig3](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig3_monthlyRevenue.png)
+![fig3](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig3_monthlyRevenue.png)
 
 
 It's important to note that from the gross estimated revenue, **Uber's share is about 25%** of the total. Therefore, we can **conservatively** estimate that Uber's gross margin in NYC from September 2014 to August 2015 was in the order of $150 million dollars. The estimated gross margin, considering instead the $27 average fare previously mentioned, was of the order of $210 million dollars. Not bad! 
 
 The next chart illustrates the percentage growth in revenue, month-over-month, from September 2014:
 
-![fig4](https://github.com/geoninja/Uber-Data-Analysis/blob/master/Images/fig4_momRevenueGrowth.png)
+![fig4](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Images/fig4_momRevenueGrowth.png)
 
 
 Based on other data shared by Uber, it's possible to roughly estimate the revenue associated with Uber Pool for the period of time being analyzed. Uber Pool launched in NYC in December of 2014. According to their [blog](https://newsroom.uber.com/us-new-york/10-facts-about-uberpool-in-nyc/):
@@ -146,7 +146,9 @@ The average fare has dropped overall, but the number of users has increased. Low
 
 ### **Final Notes.**
 
-In this report, I aimed to expose all the interesting insights that can be derived from a detailed analysis of the dataset, without even doing any machine learning. I particularly had fun investigating the "anomalies" in the plot of the total daily trips, which I have illustrated with icons to visually emphasize them. 
+In this report, I aimed to expose all the interesting insights that can be derived from a detailed analysis of the dataset with the help of machine learning. I particularly had fun investigating the "anomalies" in the plot of the total daily trips, which I have illustrated with icons to visually emphasize them. 
 
-Having identified these change points will be very useful for the next step I intend to take on this project: **forecasting demand**. As the NYC TLC has published the aggregated total count of trips per week, I will have the data to compare the results of my experiments. Forecasting is an exercise of "science and art", but there are some more recent packages that make playing with Bayesian modeling more practical. Stay tuned!
+Having identified these change points will be very useful for the next step I intend to take on this project: **forecasting fare according to demand**. As the NYC TLC has published the aggregated total count of trips per week, I will have the data to compare the results of my experiments. Forecasting is an exercise of "science and art", but there are some more recent packages that make playing with Bayesian modeling more practical. Head on to [this notebook](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Uber%20Fare%20Prediction.ipynb) to checkout the results of Fare Prediction models. I have also included a detailed report describing my approach in [this report](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Reports/Uber%20Fare%20Prediction.md).
+
+For Spatial Visualization of Data and prediction of demand based on location, I have used Density based clusters which can be viewed in [this notebook](https://github.com/Aakriti28/Uber-Data-Analytics/blob/master/Uber%20-%20Density%20Based%20Clustering.ipynb).
 
